@@ -1,5 +1,6 @@
 package domain.entities;
 
+import domain.exceptions.InsufficientStockException;
 import domain.exceptions.InvalidProductValueException;
 
 import java.math.BigDecimal;
@@ -34,6 +35,13 @@ public class Produto {
         if (estoque < 0) {
             throw InvalidProductValueException.create("Preencha o estoque com um valor não negativo, aqui não é dropshipping.");
         }
+    }
+
+    public static void reduzirEstoque(Produto produto, int quantidade) {
+        if (quantidade > produto.estoque) {
+            throw InsufficientStockException.create("Que isso moral, o estoque não é elástico assim. Acabou.");
+        }
+        produto.estoque -= quantidade;
     }
 
     public String getCodigo() { return codigo; }
