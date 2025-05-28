@@ -50,10 +50,14 @@ public class Main {
 
         try
         {
-            container.registerProductService.CadastrarProduto(new ProdutoDto("ProdutoTeste", "123u", new BigDecimal("10.50"),1));
-        } catch (InvalidProductValueException ex)
+            container.registerProductService.CadastrarProduto(new ProdutoDto("", "", new BigDecimal("10.50"),1));
+        }
+        catch (InvalidProductValueException ex)
         {
             System.out.println("Erro ao cadastrar produto: " + ex.getMessage());
+        }
+        finally {
+            System.out.println("Né que deu erro, enviando para a fila de envio de email de erros...");
         }
 
         System.out.println("Não crie pânico, foram inseridos os sequintes produtos:");
