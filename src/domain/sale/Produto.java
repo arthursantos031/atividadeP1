@@ -1,4 +1,4 @@
-package domain.entities;
+package domain.sale;
 
 import domain.exceptions.InsufficientStockException;
 import domain.exceptions.InvalidProductValueException;
@@ -48,4 +48,9 @@ public class Produto {
     public int getEstoque() { return estoque; }
     public BigDecimal getPreco() { return preco; }
 
+    @Override
+    public String toString() {
+        return String.format("Código: %s | Nome: %s | Preço: R$ %.2f | Estoque: %d",
+                codigo, nome, preco, estoque);
+    }
 }

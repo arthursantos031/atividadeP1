@@ -1,9 +1,7 @@
 package application.registerProduct;
 
-import domain.entities.IProductRepository;
-import domain.entities.Produto;
-
-import java.math.BigDecimal;
+import domain.sale.IProductRepository;
+import domain.sale.Produto;
 
 public class RegisterProductService implements IRegisterProductService
 {
@@ -16,5 +14,6 @@ public class RegisterProductService implements IRegisterProductService
     @Override
     public void CadastrarProduto(ProdutoDto request) {
         var produto = Produto.CreateProduto(request.nome,request.codigo, request.preco, request.estoque);
+        productRepository.save(produto);
     }
 }

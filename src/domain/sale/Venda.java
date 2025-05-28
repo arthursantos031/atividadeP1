@@ -1,4 +1,4 @@
-package domain.entities;
+package domain.sale;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

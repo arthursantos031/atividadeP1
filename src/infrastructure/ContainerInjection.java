@@ -2,7 +2,7 @@ package infrastructure;
 
 import application.registerProduct.RegisterProductService;
 import application.simulateSale.SimulateSaleService;
-import domain.entities.IProductRepository;
+import domain.sale.IProductRepository;
 import infrastructure.data.ProductRepository;
 
 public class ContainerInjection {
